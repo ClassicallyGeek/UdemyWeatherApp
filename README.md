@@ -1,25 +1,13 @@
 # ReduxSimpleStarter
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+Weather Project from: [Redux](https://www.udemy.com/react-redux/)?
 
-### Getting Started
+# Covered
 
-There are two methods for getting started with this repo.
-
-#### Familiar with Git?
-Checkout this repo, install dependencies, then start the gulp process with the following:
-
-```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
-> cd ReduxSimpleStarter
-> npm install
-> npm start
-```
-
-#### Not Familiar with Git?
-Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
-
-```
-> npm install
-> npm start
-```
+* Constants for defining actions
+* Use of Middlewares (specifically Redux promise)
+* Ajax requests with Axios
+* No state mutations in reducers
+* Destructuring an existing array
+* Sparklines Library to make graphs
+* React Google Maps component
