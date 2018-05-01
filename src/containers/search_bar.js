@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-export default class SearchBar extends Component {
+import fetchWeather from '../actions/index';
+
+class SearchBar extends Component {
   constructor(props) {
     super(props);
 
@@ -9,6 +13,7 @@ export default class SearchBar extends Component {
     // Since we didn't use the fat arrow function that keeps context,
     // we need to bind onInput change to "this"
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
   onInputChange(event) {
@@ -17,6 +22,8 @@ export default class SearchBar extends Component {
 
   onFormSubmit(event) {
     event.preventDefault(); // Stop the browser submitting the form- causes refresh.
+    this.props.fetchWeather(this.state.term);
+    this.setState({term: ''});
   }
 
   render() {
@@ -38,3 +45,11 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  // The question to ask is "what is the callback reducer we want to call?"
+  // Causes action creator- whenever it's called, makes sure that the action flows into middlewear & then reducers.
+  return bindActionCreators( {fetchWeather}, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
